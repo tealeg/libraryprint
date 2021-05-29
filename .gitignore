@@ -1,0 +1,6 @@
+*.aux
+*.log
+*.tex
+*.pdf
+libraryprint
+*.csv

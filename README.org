@@ -1,0 +1,40 @@
+* libraryprint
+** Introduction
+
+This is a trivial program to take a CSV dump of the Excel file
+exported by the "Meine Bibliothek" adroid application, and generate a
+series of library book record cards from that data.
+
+The output is a single LaTeX file that containes all the library
+record cards (one per page) formatted for DIN A5 paper.
+
+Every record that's visited is MD5 summed, and these sums dumped to a
+print log, so that next time this program runs, it can avoid
+reprinting the same books (the most common case is that new books will
+be added to the application).  I've checked in my sums here to track
+them (I'm not expecting anyone else to use this tool, but if you do,
+you'll need to use a different file and manage it yourself).
+
+** Compiling the program
+
+=libraryprint= uses the go standad library only.  To compile simply invoke the following from within the root of the cloned repository:
+
++BEGIN_SRC sh
+go build -v .
++END_SRC
+
+** Usage
+
+To invoke the program you need to prived the input CSV file, the path to store your MD5sums under, and an output file path, thus:
+
++BEGIN_SRC sh
+./libraryprint MeineBibliothek.xls\ -\ Bücher.csv sums out.tex
++END_SRC
+
+*** Making a PDF from the output
+
+Now you have a tex file, you can create a PDF as simply as:
+
++BEGIN_SRC sh
+xelatex out.tex
++END_SRC
