@@ -19,22 +19,22 @@ you'll need to use a different file and manage it yourself).
 
 =libraryprint= uses the go standad library only.  To compile simply invoke the following from within the root of the cloned repository:
 
-+BEGIN_SRC sh
+#+BEGIN_SRC sh
 go build -v .
-+END_SRC
+#+END_SRC
 
 ** Usage
 
 To invoke the program you need to prived the input CSV file, the path to store your MD5sums under, and an output file path, thus:
 
-+BEGIN_SRC sh
+#+BEGIN_SRC sh
 ./libraryprint MeineBibliothek.xls\ -\ Bücher.csv sums out.tex
-+END_SRC
+#+END_SRC
 
 *** Making a PDF from the output
 
 Now you have a tex file, you can create a PDF as simply as:
 
-+BEGIN_SRC sh
+#+BEGIN_SRC sh
 xelatex out.tex
-+END_SRC
+#+END_SRC
